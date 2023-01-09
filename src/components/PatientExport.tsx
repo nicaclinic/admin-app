@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import User from '../types/User'
 import { List, ListItem, ListItemText, ListItemSecondaryAction, IconButton, Button, TextField, Paper } from '@material-ui/core';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';

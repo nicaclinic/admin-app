@@ -111,7 +111,7 @@ const Login = () => {
             <ThemeProvider theme={theme}>
               <CardHeader className={classes.header} style={{ fontSize: "25px" }} title="Hikma Health Admin" avatar={
                 <Avatar>
-                  <img className={classes.icon} src={require("../Images/hikma-logo-no-text.png")} />
+                  <img className={classes.icon} src={require("../Images/hikma-logo-no-text.png")} alt="logo" />
                 </Avatar>} />
             </ThemeProvider>
 

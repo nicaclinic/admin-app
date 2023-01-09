@@ -62,6 +62,16 @@ const Home = (props: any) => {
   const [users, setUsers] = useState([]);
   const [deleteUserEmail, setDeleteUserEmail] = useState('');
 
+  const getUsers = async (): Promise<User[]> => {
+    const response = await fetch(`${process.env.REACT_APP_INSTANCE_URL}/admin_api/all_users`, {
+      method: 'GET',
+      headers: {
+        Authorization: token
+      }
+    });
+    return await response.json();
+  }
+
   useEffect(() => {
     getUsers().then((response: any) => {
       if (response.message === 'Invalid token') {
@@ -69,7 +79,7 @@ const Home = (props: any) => {
       }
       setUsers(response.users)
     })
-  }, [])
+  }, [getUsers])
 
 
 
@@ -146,16 +156,6 @@ const Home = (props: any) => {
     return await response.json();
   }
 
-  const getUsers = async (): Promise<User[]> => {
-    const response = await fetch(`${process.env.REACT_APP_INSTANCE_URL}/admin_api/all_users`, {
-      method: 'GET',
-      headers: {
-        Authorization: token
-      }
-    });
-    return await response.json();
-  }
-
   const UserList = () => {
     const listItems = users.map((user: User) => {
       return (
@@ -187,7 +187,7 @@ const Home = (props: any) => {
         <AppBar position='static' className={classes.header}>
           <div className={classes.headerRow}>
             <Avatar>
-              <img className={classes.icon} src={require("../Images/hikma-logo-no-text.png")} />
+              <img className={classes.icon} src={require("../Images/hikma-logo-no-text.png")} alt="Logo" />
             </Avatar>
             <Typography variant="h5" style={{paddingLeft: 20}}>
               Hikma Health Admin
