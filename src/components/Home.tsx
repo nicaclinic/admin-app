@@ -63,7 +63,7 @@ const Home = (props: any) => {
   const [deleteUserEmail, setDeleteUserEmail] = useState('');
 
   const getUsers = async (): Promise<User[]> => {
-    const response = await fetch(`${process.env.REACT_APP_INSTANCE_URL}/admin_api/all_users`, {
+    const response = await fetch(`https://nica-clinic-api.setout.academy//admin_api/all_users`, {
       method: 'GET',
       headers: {
         Authorization: token
@@ -104,7 +104,7 @@ const Home = (props: any) => {
   }
 
   const handleLogout = () => {
-    fetch(`${process.env.REACT_APP_INSTANCE_URL}/admin_api/logout`, {
+    fetch(`https://nica-clinic-api.setout.academy//admin_api/logout`, {
       method: 'POST',
       headers: {
         Authorization: token
@@ -142,7 +142,7 @@ const Home = (props: any) => {
   }
 
   const deleteUser = async (email: string): Promise<any> => {
-    const response = await fetch(`${process.env.REACT_APP_INSTANCE_URL}/admin_api/user`, {
+    const response = await fetch(`https://nica-clinic-api.setout.academy//admin_api/user`, {
 
       method: 'DELETE',
       headers: {
